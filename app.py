@@ -107,7 +107,7 @@ def upload_file():
             
             
             video = VideoFileClip(filepath)
-            if video.duration > os.environ.get("MAX_VIDEO_LENGTH", 10):
+            if video.duration > int(os.environ.get("MAX_VIDEO_LENGTH", 30)):
                         return jsonify({
                             "error": f"Video length exceeds maximum allowed length of {os.environ.get('MAX_VIDEO_LENGTH', 10)} seconds. Your video is {video.duration:.2f} seconds long."
                         })
